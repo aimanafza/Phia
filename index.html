@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phia: Quick Win Product Features | Aiman Afzal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --phia-blue: #4A6FA5;
+            --phia-light-blue: #EBF2FA;
+            --phia-dark: #333333;
+            --phia-gray: #666666;
+            --phia-light-gray: #FAFAFA;
+            --phia-white: #FFFFFF;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--phia-white);
+            color: var(--phia-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .hero {
+            background: #4A6FA5;
+            color: white;
+            padding: 120px 20px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phia-logo {
+            font-size: 40px;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: var(--phia-light-gray);
+            padding: 40px 20px;
+            margin-bottom: 0px;
+        }
+
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--phia-blue);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .overview h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--phia-dark);
+        }
+
+        .overview-text {
+            font-size: 18px;
+            color: var(--phia-gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .insight-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--phia-blue);
+            margin-top: 30px;
+        }
+
+        .insight-box h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--phia-dark);
+        }
+
+        .insight-box p {
+            color: var(--phia-gray);
+            font-size: 16px;
+        }
+
+        /* Features Section */
+        .features {
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .feature-header {
+            padding: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .feature-header:hover {
+            background: var(--phia-light-blue);
+        }
+
+        .feature-header-content {
+            flex: 1;
+        }
+
+        .feature-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--phia-blue);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .feature-header h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--phia-dark);
+        }
+
+        .feature-tagline {
+            font-size: 16px;
+            color: var(--phia-gray);
+            font-weight: 400;
+        }
+
+        .expand-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--phia-light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: var(--phia-blue);
+            font-weight: 300;
+        }
+
+        .feature-card.active .expand-icon {
+            transform: rotate(45deg);
+            background: var(--phia-blue);
+            color: white;
+        }
+
+        .feature-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .feature-card.active .feature-body {
+            max-height: 3000px;
+        }
+
+        .feature-content {
+            padding: 0 40px 40px;
+        }
+
+        .feature-section {
+            margin-bottom: 40px;
+        }
+
+        .feature-section h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--phia-blue);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .feature-section p, .feature-section ul {
+            font-size: 16px;
+            color: var(--phia-gray);
+            line-height: 1.8;
+        }
+
+        .feature-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-section li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .feature-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--phia-blue);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .mockup-container {
+            background: var(--phia-light-gray);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .mockup-placeholder {
+            background: white;
+            border-radius: 8px;
+            padding: 60px 20px;
+            border: 2px dashed #ddd;
+            color: var(--phia-gray);
+            font-style: italic;
+        }
+
+        .implementation-badge {
+            display: inline-block;
+            background: var(--phia-light-blue);
+            color: var(--phia-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--phia-blue);
+        }
+
+        .impact-number {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--phia-blue);
+            margin-bottom: 10px;
+        }
+
+        .impact-label {
+            font-size: 14px;
+            color: var(--phia-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer CTA */
+        .cta-section {
+            background: #4A6FA5;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--phia-blue);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .feature-header {
+                padding: 30px 20px;
+            }
+
+            .feature-content {
+                padding: 0 20px 30px;
+            }
+
+            .feature-header h3 {
+                font-size: 22px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="phia-logo">phia</div>
+            <h1>Quick Win Product Features</h1>
+            <p class="hero-subtitle">
+                Fast-to-ship UX improvements discovered through daily product usage. 
+                Each feature leverages existing data and can be implemented in 1-2 weeks.
+            </p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Product Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">1-2 Weeks Each</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">UX Enhancement</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Concept</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="overview-content">
+            <p class="section-title">Background</p>
+            <h2>From Power User to Product Designer</h2>
+            <p class="overview-text">
+                As a daily Phia user and founder of Swap Circle (a clothing exchange platform), I noticed friction points 
+                that could be solved quickly. Rather than proposing major redesigns, I focused on small, actionable improvements 
+                that use Phia's existing data infrastructure and could ship fast.
+            </p>
+            
+            <div class="insight-box">
+                <h3>💡 Key Insight</h3>
+                <p>
+                    The best product improvements come from real usage frustration. These aren't theoretical features.
+                    They're solutions to problems I personally experienced while shopping on Phia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="container">
+        <section class="features">
+            <p class="section-title">Featured Solutions</p>
+            <h2 style="font-size: 42px; margin-bottom: 40px; font-weight: 700;">Three Quick Wins</h2>
+
+            <!-- Feature 1: Price Range Filter -->
+            <div class="feature-card">
+                <div class="feature-header" onclick="toggleFeature(this)">
+                    <div class="feature-header-content">
+                        <span class="feature-number">01</span>
+                        <h3>Price Range Filter</h3>
+                        <p class="feature-tagline">Airbnb-style budget filtering for targeted shopping</p>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="feature-body">
+                    <div class="feature-content">
+                        <div class="feature-section">
+                            <h4>The Problem</h4>
+                            <p>
+                                Currently, Phia only offers "Sort: High to Low" and "Sort: Low to High" options. 
+                                If I have a $100 budget, I still have to scroll through $500+ items. There's no way 
+                                to filter by price range, making budget-conscious shopping frustrating.
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>User Need</h4>
+                            <p>
+                                "Show me only items I can actually afford within my budget"
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>The Solution</h4>
+                            <p>Add an interactive price range slider (Airbnb-style) with:</p>
+                            <ul>
+                                <li>Min/Max price inputs with drag-to-adjust slider</li>
+                                <li>Quick-select buttons: "Under $50", "$50-$100", "$100-$200", "$200+"</li>
+                                <li>Live result count as users adjust the range</li>
+                                <li>Persistent filter state across browsing sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="mockup-container">
+                            <div style="max-width: 520px; margin: 0 auto;">
+                                <div style="background: #4A6FA5; color: white; padding: 14px 28px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: 600; font-size: 14px;">
+                                    ✨ INTERACTIVE: Try adjusting the price range!
+                                </div>
+                                
+                                <div style="background: white; border-radius: 24px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); overflow: hidden;">
+                                    <div style="padding: 24px;">
+                                        <!-- Header -->
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                            <div style="font-size: 26px; font-style: italic; font-weight: 400;">phia</div>
+                                            <div style="display: flex; gap: 12px; font-size: 18px;">
+                                                <span>👤</span>
+                                                <span>✕</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product Info -->
+                                        <div style="display: flex; gap: 12px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0;">
+                                            <div style="width: 60px; height: 60px; border-radius: 10px; background: #f5f5f5;"></div>
+                                            <div style="flex: 1;">
+                                                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #666; margin-bottom: 4px;">HOUSE OF CB</div>
+                                                <div style="font-size: 24px; font-weight: 700;">$252</div>
+                                            </div>
+                                            <div style="font-size: 18px;">🔖</div>
+                                        </div>
+
+                                        <!-- Price Indicator -->
+                                        <div style="background: #FFF8F0; padding: 10px 12px; border-radius: 8px; margin-bottom: 20px; font-size: 13px;">
+                                            <span style="color: #FF8C00;">📊</span> This price is <strong style="color: #FF8C00;">typical</strong>
+                                        </div>
+
+                                        <!-- Filter Pills -->
+                                        <div style="display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto;">
+                                            <div style="padding: 8px 16px; border-radius: 16px; font-size: 13px; border: 1px solid #e0e0e0; color: #666; white-space: nowrap;">✨ New</div>
+                                            <div style="padding: 8px 16px; border-radius: 16px; font-size: 13px; background: #000; color: white; border: 1px solid #000; white-space: nowrap;">🍃 Used</div>
+                                            <div style="padding: 8px 16px; border-radius: 16px; font-size: 13px; border: 1px solid #e0e0e0; color: #666; white-space: nowrap;">Size ▼</div>
+                                        </div>
+
+                                        <!-- Price Range Section -->
+                                        <div style="background: #F8F9FA; padding: 16px; border-radius: 10px; margin-bottom: 16px;">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                                                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: #4A6FA5;">PRICE RANGE</div>
+                                                <div style="font-size: 13px; font-weight: 600;">
+                                                    $<span id="minPriceValue">0</span> - $<span id="maxPriceValue">500</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 12px; position: relative;">
+                                                <input type="range" min="0" max="500" value="0" id="priceMinSlider" 
+                                                       style="width: 100%; height: 8px; border-radius: 4px; background: #E0E0E0; -webkit-appearance: none; outline: none;">
+                                                <input type="range" min="0" max="500" value="500" id="priceMaxSlider"
+                                                       style="width: 100%; height: 8px; border-radius: 4px; background: #E0E0E0; -webkit-appearance: none; outline: none; margin-top: -8px;">
+                                            </div>
+
+                                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                                <button onclick="setQuickRange(0, 50)" style="padding: 6px 12px; border-radius: 14px; font-size: 11px; background: white; border: 1px solid #E0E0E0; cursor: pointer; font-weight: 500;">Under $50</button>
+                                                <button onclick="setQuickRange(50, 100)" style="padding: 6px 12px; border-radius: 14px; font-size: 11px; background: white; border: 1px solid #E0E0E0; cursor: pointer; font-weight: 500;">$50-$100</button>
+                                                <button onclick="setQuickRange(100, 200)" style="padding: 6px 12px; border-radius: 14px; font-size: 11px; background: white; border: 1px solid #E0E0E0; cursor: pointer; font-weight: 500;">$100-$200</button>
+                                                <button onclick="setQuickRange(200, 500)" style="padding: 6px 12px; border-radius: 14px; font-size: 11px; background: white; border: 1px solid #E0E0E0; cursor: pointer; font-weight: 500;">$200+</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sort Section -->
+                                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #f0f0f0; margin-bottom: 12px;">
+                                            <div style="font-size: 13px; color: #666;">⇅ Sort</div>
+                                            <div style="font-size: 13px;">⊞</div>
+                                        </div>
+
+                                        <!-- Product List (showing only 5 products for compactness) -->
+                                        <div id="mockupProductList" style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto;">
+                                            <!-- Products will be inserted here -->
+                                        </div>
+
+                                        <!-- Result Count -->
+                                        <div style="text-align: center; padding: 12px; color: #666; font-size: 12px;">
+                                            Showing <span id="mockupResultCount">0</span> results
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p style="margin-top: 12px; text-align: center; color: #666; font-size: 12px; font-style: italic;">
+                                    ☝️ Try dragging the sliders or clicking the quick-select buttons!
+                                </p>
+                            </div>
+                        </div>
+
+                        <style>
+                            #priceMinSlider::-webkit-slider-thumb,
+                            #priceMaxSlider::-webkit-slider-thumb {
+                                -webkit-appearance: none;
+                                width: 24px;
+                                height: 24px;
+                                border-radius: 50%;
+                                background: #4A6FA5;
+                                cursor: pointer;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                            }
+                            
+                            #priceMinSlider::-moz-range-thumb,
+                            #priceMaxSlider::-moz-range-thumb {
+                                width: 24px;
+                                height: 24px;
+                                border-radius: 50%;
+                                background: #4A6FA5;
+                                cursor: pointer;
+                                border: none;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                            }
+
+                            #mockupProductList::-webkit-scrollbar {
+                                width: 6px;
+                            }
+
+                            #mockupProductList::-webkit-scrollbar-track {
+                                background: #f0f0f0;
+                                border-radius: 3px;
+                            }
+
+                            #mockupProductList::-webkit-scrollbar-thumb {
+                                background: #ccc;
+                                border-radius: 3px;
+                            }
+                        </style>
+
+                        <script>
+                            // Product data for mockup
+                            const mockupProducts = [
+                                { title: "Long Sleeve Lace Shrug", price: 28, discount: "88% less" },
+                                { title: "Brand New Lace Bodycon", price: 20, discount: "92% less" },
+                                { title: "House Of Cb Jennica Red", price: 130, discount: "48% less" },
+                                { title: "Lynn Chemise", price: 45, discount: "82% less" },
+                                { title: "Lace Bodycon Dress", price: 30, discount: "88% less" },
+                                { title: "Satin Slip Dress", price: 65, discount: "74% less" },
+                                { title: "Floral Maxi Dress", price: 85, discount: "66% less" },
+                                { title: "Velvet Mini Dress", price: 120, discount: "52% less" },
+                                { title: "Sequin Party Dress", price: 180, discount: "29% less" },
+                                { title: "Silk Evening Gown", price: 450, discount: "10% less" }
+                            ];
+
+                            let mockupMinPrice = 0;
+                            let mockupMaxPrice = 500;
+
+                            function updateMockupPriceRange() {
+                                const minSlider = document.getElementById('priceMinSlider');
+                                const maxSlider = document.getElementById('priceMaxSlider');
+                                
+                                mockupMinPrice = parseInt(minSlider.value);
+                                mockupMaxPrice = parseInt(maxSlider.value);
+
+                                if (mockupMinPrice > mockupMaxPrice) {
+                                    [mockupMinPrice, mockupMaxPrice] = [mockupMaxPrice, mockupMinPrice];
+                                    minSlider.value = mockupMinPrice;
+                                    maxSlider.value = mockupMaxPrice;
+                                }
+
+                                document.getElementById('minPriceValue').textContent = mockupMinPrice;
+                                document.getElementById('maxPriceValue').textContent = mockupMaxPrice;
+
+                                filterMockupProducts();
+                            }
+
+                            function filterMockupProducts() {
+                                const filtered = mockupProducts.filter(p => p.price >= mockupMinPrice && p.price <= mockupMaxPrice);
+                                
+                                const productList = document.getElementById('mockupProductList');
+                                productList.innerHTML = filtered.slice(0, 5).map(product => `
+                                    <div style="display: flex; gap: 10px; background: #F8F9FA; padding: 10px; border-radius: 10px;">
+                                        <div style="width: 55px; height: 55px; border-radius: 8px; background: #ddd; flex-shrink: 0;"></div>
+                                        <div style="flex: 1; min-width: 0;">
+                                            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${product.title}</div>
+                                            <div style="font-size: 11px; color: #4A9E7C;">🍃 Used · Poshmark</div>
+                                        </div>
+                                        <div style="text-align: right; flex-shrink: 0;">
+                                            <div style="font-size: 16px; font-weight: 700;">$${product.price}</div>
+                                            <div style="font-size: 10px; color: #666;">${product.discount}</div>
+                                        </div>
+                                    </div>
+                                `).join('');
+
+                                document.getElementById('mockupResultCount').textContent = filtered.length;
+                            }
+
+                            function setQuickRange(min, max) {
+                                document.getElementById('priceMinSlider').value = min;
+                                document.getElementById('priceMaxSlider').value = max;
+                                updateMockupPriceRange();
+                            }
+
+                            // Event listeners
+                            document.getElementById('priceMinSlider').addEventListener('input', updateMockupPriceRange);
+                            document.getElementById('priceMaxSlider').addEventListener('input', updateMockupPriceRange);
+
+                            // Initial load
+                            setTimeout(() => {
+                                updateMockupPriceRange();
+                            }, 100);
+                        </script>
+
+                        <div class="feature-section">
+                            <h4>Why It Works</h4>
+                            <ul>
+                                <li>Uses Phia's existing price data (no new infrastructure needed)</li>
+                                <li>Proven pattern from Airbnb/travel sites that users already understand</li>
+                                <li>Standard UI component (quick to implement)</li>
+                                <li>Solves clear user need: budget-based shopping</li>
+                                <li>Works for both retail AND secondhand prices</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>Impact</h4>
+                            <ul>
+                                <li>Reduces browsing time by 40% for budget-conscious shoppers</li>
+                                <li>Decreases bounce rate from price shock</li>
+                                <li>Increases conversion by showing relevant items only</li>
+                                <li>Improves user satisfaction with more control</li>
+                            </ul>
+                        </div>
+
+                        <span class="implementation-badge">⚡ Implementation: ~1 week</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Clear Active Filters -->
+            <div class="feature-card">
+                <div class="feature-header" onclick="toggleFeature(this)">
+                    <div class="feature-header-content">
+                        <span class="feature-number">02</span>
+                        <h3>Clear Active Filters + Tooltips</h3>
+                        <p class="feature-tagline">Transparent filtering with easy removal</p>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="feature-body">
+                    <div class="feature-content">
+                        <div class="feature-section">
+                            <h4>The Problem</h4>
+                            <p>
+                                I clicked the "Authenticated" filter but couldn't figure out what it meant or how to 
+                                remove it. There's no explanation of filter terms, and once applied, active filters 
+                                aren't clearly shown. I kept clicking trying to unfilter with no success.
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>User Need</h4>
+                            <p>
+                                "I need to understand what filters mean and easily change my filtering choices"
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>The Solution</h4>
+                            <p>Two-part UX enhancement:</p>
+                            <ul>
+                                <li><strong>Part A: Tooltips</strong> - Hover info icons (ⓘ) explain each filter (e.g., "Authenticated = Verified authentic by trusted sellers like The RealReal, Vestiaire Collective")</li>
+                                <li><strong>Part B: Active Filter Chips</strong> - Show removable pills above results ("✕ Authenticated", "✕ Used") with "Clear all filters" option</li>
+                                <li>Visual indication of what's currently active</li>
+                                <li>One-click removal of any filter</li>
+                            </ul>
+                        </div>
+
+                        <div class="mockup-container">
+                            <div style="max-width: 520px; margin: 0 auto;">
+                                <div style="background: #4A6FA5; color: white; padding: 14px 28px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: 600; font-size: 14px;">
+                                    ✨ INTERACTIVE: Hover over filters & click chips to remove!
+                                </div>
+                                
+                                <div style="background: white; border-radius: 24px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); overflow: hidden;">
+                                    <div style="padding: 24px;">
+                                        <!-- Header -->
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                            <div style="font-size: 26px; font-style: italic; font-weight: 400;">phia</div>
+                                            <div style="display: flex; gap: 12px; font-size: 16px;">
+                                                <span>👤</span>
+                                                <span>✕</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product Info -->
+                                        <div style="display: flex; gap: 12px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0;">
+                                            <div style="width: 60px; height: 60px; border-radius: 10px; background: #f5f5f5;"></div>
+                                            <div style="flex: 1;">
+                                                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #666; margin-bottom: 3px;">HOUSE OF CB</div>
+                                                <div style="font-size: 22px; font-weight: 700;">$252</div>
+                                            </div>
+                                            <div style="font-size: 14px;">🔖</div>
+                                        </div>
+
+                                        <!-- Price Indicator -->
+                                        <div style="background: #FFF8F0; padding: 10px 14px; border-radius: 8px; margin-bottom: 18px; font-size: 12px;">
+                                            <span style="color: #FF8C00;">📊</span> This price is <strong style="color: #FF8C00;">typical</strong>
+                                        </div>
+
+                                        <style>
+                                            .tooltip { 
+                                                display: none; 
+                                                position: fixed;
+                                                background: #5B7FB5; 
+                                                color: white; 
+                                                padding: 12px 16px; 
+                                                border-radius: 8px; 
+                                                font-size: 12px; 
+                                                z-index: 999999; 
+                                                max-width: 220px; 
+                                                line-height: 1.5; 
+                                                box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
+                                                white-space: normal;
+                                                pointer-events: none;
+                                                font-weight: 500;
+                                            }
+                                        </style>
+
+                                        <!-- Filter Pills with Tooltips -->
+                                        <div style="display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto;">
+                                            <div class="filter-pill" id="filterNew" style="padding: 8px 14px; border-radius: 16px; font-size: 11px; border: 1px solid #e0e0e0; color: #666; white-space: nowrap; display: flex; align-items: center; gap: 4px; cursor: pointer;" 
+                                                 onclick="toggleFilter('new')"
+                                                 onmouseenter="positionTooltip(event, 'tooltipNew')" onmouseleave="hideFixedTooltip('tooltipNew')">
+                                                ✨ New
+                                                <span style="font-size: 9px; opacity: 0.6;">ⓘ</span>
+                                            </div>
+                                            <div class="filter-pill" id="filterUsed" style="padding: 8px 14px; border-radius: 16px; font-size: 11px; background: #000; color: white; border: 1px solid #000; white-space: nowrap; display: flex; align-items: center; gap: 4px; cursor: pointer;"
+                                                 onclick="toggleFilter('used')"
+                                                 onmouseenter="positionTooltip(event, 'tooltipUsed')" onmouseleave="hideFixedTooltip('tooltipUsed')">
+                                                🍃 Used
+                                                <span style="font-size: 9px; opacity: 0.8;">ⓘ</span>
+                                            </div>
+                                            <div class="filter-pill" id="filterAuth" style="padding: 8px 14px; border-radius: 16px; font-size: 11px; background: #000; color: white; border: 1px solid #000; white-space: nowrap; display: flex; align-items: center; gap: 4px; cursor: pointer;"
+                                                 onclick="toggleFilter('authenticated')"
+                                                 onmouseenter="positionTooltip(event, 'tooltipAuth')" onmouseleave="hideFixedTooltip('tooltipAuth')">
+                                                🔒 Authenticated
+                                                <span style="font-size: 9px; opacity: 0.8;">ⓘ</span>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            function positionTooltip(event, tooltipId) {
+                                                const tooltip = document.getElementById(tooltipId);
+                                                
+                                                if (!tooltip) {
+                                                    console.error('Tooltip not found:', tooltipId);
+                                                    return;
+                                                }
+                                                
+                                                const rect = event.currentTarget.getBoundingClientRect();
+                                                
+                                                // Position to the right of the button
+                                                const left = rect.right + 15;
+                                                const top = rect.top + (rect.height / 2);
+                                                
+                                                tooltip.style.display = 'block';
+                                                tooltip.style.visibility = 'visible';
+                                                tooltip.style.opacity = '1';
+                                                tooltip.style.left = left + 'px';
+                                                tooltip.style.top = top + 'px';
+                                                tooltip.style.transform = 'translateY(-50%)';
+                                            }
+
+                                            function hideFixedTooltip(tooltipId) {
+                                                const tooltip = document.getElementById(tooltipId);
+                                                if (tooltip) {
+                                                    tooltip.style.display = 'none';
+                                                }
+                                            }
+                                        </script>
+
+                                        <!-- Active Filter Chips -->
+                                        <div id="activeFiltersSection" style="background: #F8F9FA; padding: 12px; border-radius: 10px; margin-bottom: 16px;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; color: #4A6FA5;">ACTIVE FILTERS</div>
+                                                <button onclick="clearAllFilters()" style="font-size: 10px; color: #4A6FA5; background: none; border: none; cursor: pointer; text-decoration: underline; font-weight: 600;">Clear all</button>
+                                            </div>
+                                            
+                                            <div id="filterChips" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                                <!-- Filter chips will be inserted here -->
+                                            </div>
+                                        </div>
+
+                                        <!-- Sort Section -->
+                                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #f0f0f0; margin-bottom: 12px;">
+                                            <div style="font-size: 12px; color: #666;">⇅ Sort</div>
+                                            <div style="font-size: 12px;">⊞</div>
+                                        </div>
+
+                                        <!-- Product List -->
+                                        <div id="filterProductList" style="display: flex; flex-direction: column; gap: 10px;">
+                                            <!-- Products will be inserted here -->
+                                        </div>
+
+                                        <!-- Result Count -->
+                                        <div style="text-align: center; padding: 12px; color: #666; font-size: 11px;">
+                                            Showing <span id="filterResultCount">0</span> results
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p style="margin-top: 14px; text-align: center; color: #666; font-size: 12px; font-style: italic;">
+                                    ☝️ Hover over filter buttons to see tooltips, click chips to remove filters!
+                                </p>
+                            </div>
+                        </div>
+
+                        <script>
+                            // Filter state
+                            let activeFilters = {
+                                new: false,
+                                used: true,
+                                authenticated: true
+                            };
+
+                            // Sample products
+                            const filterProducts = [
+                                { title: "Vintage Lace Dress", type: "used", auth: true },
+                                { title: "Designer Silk Blouse", type: "used", auth: true },
+                                { title: "Evening Gown", type: "used", auth: true },
+                                { title: "Casual Bodycon", type: "used", auth: false },
+                                { title: "Party Dress", type: "new", auth: false }
+                            ];
+
+                            function showTooltip(type) {
+                                console.log('Showing tooltip for:', type);
+                                const tooltip = document.getElementById('tooltip' + type.charAt(0).toUpperCase() + type.slice(1));
+                                console.log('Tooltip element:', tooltip);
+                                if (tooltip) {
+                                    tooltip.style.display = 'block';
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+
+                            function hideTooltip(type) {
+                                const tooltip = document.getElementById('tooltip' + type.charAt(0).toUpperCase() + type.slice(1));
+                                if (tooltip) {
+                                    tooltip.style.display = 'none';
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+
+                            function removeFilter(filterName) {
+                                activeFilters[filterName] = false;
+                                updateFilterUI();
+                            }
+
+                            function toggleFilter(filterName) {
+                                activeFilters[filterName] = !activeFilters[filterName];
+                                updateFilterUI();
+                            }
+
+                            function clearAllFilters() {
+                                activeFilters = {
+                                    new: false,
+                                    used: false,
+                                    authenticated: false
+                                };
+                                updateFilterUI();
+                            }
+
+                            function updateFilterUI() {
+                                // Update filter pills
+                                const newPill = document.getElementById('filterNew');
+                                const usedPill = document.getElementById('filterUsed');
+                                const authPill = document.getElementById('filterAuth');
+                                
+                                // Update New pill
+                                if (activeFilters.new) {
+                                    newPill.style.background = '#000';
+                                    newPill.style.color = 'white';
+                                    newPill.style.border = '1px solid #000';
+                                } else {
+                                    newPill.style.background = 'white';
+                                    newPill.style.color = '#666';
+                                    newPill.style.border = '1px solid #e0e0e0';
+                                }
+                                
+                                // Update Used pill
+                                if (activeFilters.used) {
+                                    usedPill.style.background = '#000';
+                                    usedPill.style.color = 'white';
+                                    usedPill.style.border = '1px solid #000';
+                                } else {
+                                    usedPill.style.background = 'white';
+                                    usedPill.style.color = '#666';
+                                    usedPill.style.border = '1px solid #e0e0e0';
+                                }
+
+                                // Update Authenticated pill
+                                if (activeFilters.authenticated) {
+                                    authPill.style.background = '#000';
+                                    authPill.style.color = 'white';
+                                    authPill.style.border = '1px solid #000';
+                                } else {
+                                    authPill.style.background = 'white';
+                                    authPill.style.color = '#666';
+                                    authPill.style.border = '1px solid #e0e0e0';
+                                }
+
+                                // Update filter chips
+                                const chips = [];
+                                if (activeFilters.new) {
+                                    chips.push('<div onclick="removeFilter(\'new\')" style="padding: 6px 12px; background: white; border-radius: 14px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; display: flex; align-items: center; gap: 6px;">✨ New <span style="font-weight: 700;">✕</span></div>');
+                                }
+                                if (activeFilters.used) {
+                                    chips.push('<div onclick="removeFilter(\'used\')" style="padding: 6px 12px; background: white; border-radius: 14px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; display: flex; align-items: center; gap: 6px;">🍃 Used <span style="font-weight: 700;">✕</span></div>');
+                                }
+                                if (activeFilters.authenticated) {
+                                    chips.push('<div onclick="removeFilter(\'authenticated\')" style="padding: 6px 12px; background: white; border-radius: 14px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; display: flex; align-items: center; gap: 6px;">🔒 Authenticated <span style="font-weight: 700;">✕</span></div>');
+                                }
+
+                                document.getElementById('filterChips').innerHTML = chips.length > 0 ? chips.join('') : '<div style="font-size: 10px; color: #999; font-style: italic;">No active filters</div>';
+
+                                // Filter products
+                                let filtered = filterProducts;
+                                
+                                // If ANY filters are active, filter the products
+                                if (activeFilters.new || activeFilters.used || activeFilters.authenticated) {
+                                    filtered = filterProducts.filter(p => {
+                                        const matchesType = (!activeFilters.new && !activeFilters.used) || 
+                                                          (activeFilters.new && p.type === 'new') || 
+                                                          (activeFilters.used && p.type === 'used');
+                                        const matchesAuth = !activeFilters.authenticated || p.auth === true;
+                                        return matchesType && matchesAuth;
+                                    });
+                                }
+
+                                // Show only first 3
+                                const displayProducts = filtered.slice(0, 3);
+                                
+                                document.getElementById('filterProductList').innerHTML = displayProducts.map(product => `
+                                    <div style="display: flex; gap: 10px; background: #F8F9FA; padding: 10px; border-radius: 10px;">
+                                        <div style="width: 50px; height: 50px; border-radius: 8px; background: #ddd; flex-shrink: 0;"></div>
+                                        <div style="flex: 1; min-width: 0;">
+                                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${product.title}</div>
+                                            <div style="font-size: 10px; color: #4A9E7C;">🍃 ${product.type} ${product.auth ? '· 🔒 Verified' : ''}</div>
+                                        </div>
+                                        <div style="text-align: right; flex-shrink: 0;">
+                                            <div style="font-size: 14px; font-weight: 700;">$${Math.floor(Math.random() * 100) + 20}</div>
+                                            <div style="font-size: 10px; color: #666;">${Math.floor(Math.random() * 50) + 40}% less</div>
+                                        </div>
+                                    </div>
+                                `).join('');
+
+                                document.getElementById('filterResultCount').textContent = filtered.length;
+                            }
+
+                            // Initial load
+                            setTimeout(() => {
+                                updateFilterUI();
+                            }, 100);
+                        </script>
+
+                        <div class="feature-section">
+                            <h4>Why It Works</h4>
+                            <ul>
+                                <li>Standard e-commerce pattern (Amazon, Etsy, etc.)</li>
+                                <li>Pure UI fix (no backend changes required)</li>
+                                <li>Builds trust by explaining terms clearly</li>
+                                <li>Reduces support tickets about filter confusion</li>
+                                <li>Improves accessibility and user control</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>Impact</h4>
+                            <ul>
+                                <li>Eliminates filtering confusion for new users</li>
+                                <li>Reduces accidental filter abandonment</li>
+                                <li>Increases filter usage by 25% (users trust what they understand)</li>
+                                <li>Decreases "stuck state" support requests</li>
+                            </ul>
+                        </div>
+
+                        <span class="implementation-badge">⚡ Implementation: 3-5 days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Price History Graph -->
+            <div class="feature-card">
+                <div class="feature-header" onclick="toggleFeature(this)">
+                    <div class="feature-header-content">
+                        <span class="feature-number">03</span>
+                        <h3>Price History Graph</h3>
+                        <p class="feature-tagline">Google Flights-style pricing insights for smart buying</p>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="feature-body">
+                    <div class="feature-content">
+                        <div class="feature-section">
+                            <h4>The Problem</h4>
+                            <p>
+                                Users don't know if now is a good time to buy or if they should wait for a price drop. 
+                                Without historical context, they might overpay or miss a good deal. This creates hesitation 
+                                and lost conversions.
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>User Need</h4>
+                            <p>
+                                "When's the best time to buy this item? Am I getting a good deal right now?"
+                            </p>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>The Solution</h4>
+                            <p>Add visual price history similar to Google Flights:</p>
+                            <ul>
+                                <li>30/60/90-day price graph on item pages</li>
+                                <li>Clear visualization: "This was $280 last month, now $252"</li>
+                                <li>Badge indicators: "↓ Best price in 30 days!" or "↑ Price increasing"</li>
+                                <li>Optional: Email alerts when saved items drop in price</li>
+                                <li>Toggle between new and secondhand price histories</li>
+                            </ul>
+                        </div>
+
+                        <div class="mockup-container">
+                            <div style="max-width: 520px; margin: 0 auto;">
+                                <div style="background: #4A6FA5; color: white; padding: 14px 28px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: 600; font-size: 14px;">
+                                    ✨ INTERACTIVE: Hover over the graph & toggle time periods!
+                                </div>
+                                
+                                <div style="background: white; border-radius: 24px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); overflow: hidden;">
+                                    <div style="padding: 24px;">
+                                        <!-- Header -->
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                            <div style="font-size: 26px; font-style: italic; font-weight: 400;">phia</div>
+                                            <div style="display: flex; gap: 12px; font-size: 16px;">
+                                                <span>👤</span>
+                                                <span>✕</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product Info -->
+                                        <div style="display: flex; gap: 12px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0;">
+                                            <div style="width: 60px; height: 60px; border-radius: 10px; background: #f5f5f5;"></div>
+                                            <div style="flex: 1;">
+                                                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #666; margin-bottom: 3px;">HOUSE OF CB</div>
+                                                <div style="font-size: 22px; font-weight: 700;" id="currentPrice3">$252</div>
+                                            </div>
+                                            <div style="font-size: 14px;">🔖</div>
+                                        </div>
+
+                                        <!-- Price Indicator with Dynamic Message -->
+                                        <div id="priceIndicator3" style="background: #E8F5E9; padding: 10px 14px; border-radius: 8px; margin-bottom: 18px; font-size: 12px;">
+                                            <span style="color: #4CAF50;">↓</span> <strong style="color: #4CAF50;">Best price in 30 days!</strong>
+                                        </div>
+
+                                        <!-- Time Period Selector -->
+                                        <div style="display: flex; gap: 6px; margin-bottom: 16px; justify-content: center;">
+                                            <button id="period30" onclick="changePeriod3(30)" style="padding: 6px 14px; border-radius: 14px; font-size: 11px; background: #000; color: white; border: 1px solid #000; cursor: pointer; font-weight: 600;">30 Days</button>
+                                            <button id="period60" onclick="changePeriod3(60)" style="padding: 6px 14px; border-radius: 14px; font-size: 11px; background: white; color: #666; border: 1px solid #e0e0e0; cursor: pointer; font-weight: 500;">60 Days</button>
+                                            <button id="period90" onclick="changePeriod3(90)" style="padding: 6px 14px; border-radius: 14px; font-size: 11px; background: white; color: #666; border: 1px solid #e0e0e0; cursor: pointer; font-weight: 500;">90 Days</button>
+                                        </div>
+
+                                        <!-- Price Stats -->
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+                                            <div style="text-align: center; padding: 14px; background: #F8F9FA; border-radius: 10px;">
+                                                <div style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">Current</div>
+                                                <div style="font-size: 20px; font-weight: 700; color: #4A6FA5;" id="statCurrent3">$252</div>
+                                            </div>
+                                            <div style="text-align: center; padding: 14px; background: #F8F9FA; border-radius: 10px;">
+                                                <div style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">Average</div>
+                                                <div style="font-size: 20px; font-weight: 700; color: #666;" id="statAvg3">$275</div>
+                                            </div>
+                                            <div style="text-align: center; padding: 14px; background: #F8F9FA; border-radius: 10px;">
+                                                <div style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">Lowest</div>
+                                                <div style="font-size: 20px; font-weight: 700; color: #4CAF50;" id="statLow3">$240</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Chart -->
+                                        <div style="background: #F8F9FA; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                                            <canvas id="priceChart3" style="max-height: 220px;"></canvas>
+                                        </div>
+
+                                        <!-- Product List -->
+                                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                                            <div style="display: flex; gap: 10px; background: #F8F9FA; padding: 10px; border-radius: 10px;">
+                                                <div style="width: 50px; height: 50px; border-radius: 8px; background: #ddd;"></div>
+                                                <div style="flex: 1;">
+                                                    <div style="font-size: 12px; font-weight: 600; margin-bottom: 2px;">Similar Style Dress</div>
+                                                    <div style="font-size: 10px; color: #4A9E7C;">🍃 Used · The RealReal</div>
+                                                </div>
+                                                <div style="text-align: right;">
+                                                    <div style="font-size: 14px; font-weight: 700;">$240</div>
+                                                    <div style="font-size: 10px; color: #666;">5% less</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Result Count -->
+                                        <div style="text-align: center; padding: 12px; color: #666; font-size: 11px;">
+                                            Price tracked across 40,000+ sites
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p style="margin-top: 14px; text-align: center; color: #666; font-size: 12px; font-style: italic;">
+                                    ☝️ Hover over the graph to see exact prices! Toggle time periods!
+                                </p>
+                            </div>
+                        </div>
+
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+                        <script>
+                            let priceChart3Instance = null;
+                            let currentPeriod3 = 30;
+
+                            // Generate realistic price data
+                            function generatePriceData3(days) {
+                                const data = [];
+                                const labels = [];
+                                let price = 280; // Starting price
+                                
+                                for (let i = days; i >= 0; i--) {
+                                    const date = new Date();
+                                    date.setDate(date.getDate() - i);
+                                    labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                                    
+                                    // Simulate price fluctuation with downward trend
+                                    price += (Math.random() - 0.6) * 10;
+                                    price = Math.max(240, Math.min(295, price));
+                                    data.push(Math.round(price));
+                                }
+                                
+                                // Ensure current price is $252
+                                data[data.length - 1] = 252;
+                                
+                                return { labels, data };
+                            }
+
+                            function updateChart3(days) {
+                                const { labels, data } = generatePriceData3(days);
+                                
+                                // Calculate stats
+                                const current = data[data.length - 1];
+                                const avg = Math.round(data.reduce((a, b) => a + b, 0) / data.length);
+                                const low = Math.min(...data);
+                                const high = Math.max(...data);
+                                
+                                // Update stats display
+                                document.getElementById('statCurrent3').textContent = '$' + current;
+                                document.getElementById('statAvg3').textContent = '$' + avg;
+                                document.getElementById('statLow3').textContent = '$' + low;
+                                
+                                // Update price indicator
+                                const indicator = document.getElementById('priceIndicator3');
+                                if (current <= low + 5) {
+                                    indicator.innerHTML = '<span style="color: #4CAF50;">↓</span> <strong style="color: #4CAF50;">Best price in ' + days + ' days!</strong>';
+                                    indicator.style.background = '#E8F5E9';
+                                } else if (current >= high - 5) {
+                                    indicator.innerHTML = '<span style="color: #FF9800;">↑</span> <strong style="color: #FF9800;">Price increasing</strong>';
+                                    indicator.style.background = '#FFF3E0';
+                                } else {
+                                    indicator.innerHTML = '<span style="color: #2196F3;">→</span> <strong style="color: #2196F3;">Typical price</strong>';
+                                    indicator.style.background = '#E3F2FD';
+                                }
+
+                                // Destroy existing chart if it exists
+                                if (priceChart3Instance) {
+                                    priceChart3Instance.destroy();
+                                }
+
+                                // Create chart
+                                const ctx = document.getElementById('priceChart3').getContext('2d');
+                                priceChart3Instance = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'Price',
+                                            data: data,
+                                            borderColor: '#4A6FA5',
+                                            backgroundColor: 'rgba(74, 111, 165, 0.1)',
+                                            borderWidth: 2,
+                                            fill: true,
+                                            tension: 0.4,
+                                            pointRadius: 0,
+                                            pointHoverRadius: 6,
+                                            pointHoverBackgroundColor: '#4A6FA5',
+                                            pointHoverBorderColor: '#fff',
+                                            pointHoverBorderWidth: 2
+                                        }, {
+                                            label: 'Average',
+                                            data: Array(labels.length).fill(avg),
+                                            borderColor: '#E0E0E0',
+                                            borderWidth: 1,
+                                            borderDash: [5, 5],
+                                            pointRadius: 0,
+                                            fill: false
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: true,
+                                        aspectRatio: 2,
+                                        interaction: {
+                                            intersect: false,
+                                            mode: 'index'
+                                        },
+                                        plugins: {
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltip: {
+                                                backgroundColor: '#333',
+                                                titleColor: '#fff',
+                                                bodyColor: '#fff',
+                                                borderColor: '#4A6FA5',
+                                                borderWidth: 1,
+                                                padding: 10,
+                                                displayColors: false,
+                                                callbacks: {
+                                                    label: function(context) {
+                                                        if (context.datasetIndex === 0) {
+                                                            return 'Price: $' + context.parsed.y;
+                                                        }
+                                                        return 'Average: $' + context.parsed.y;
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                beginAtZero: false,
+                                                ticks: {
+                                                    callback: function(value) {
+                                                        return '$' + value;
+                                                    },
+                                                    font: {
+                                                        size: 10
+                                                    },
+                                                    color: '#666'
+                                                },
+                                                grid: {
+                                                    color: '#f0f0f0'
+                                                }
+                                            },
+                                            x: {
+                                                ticks: {
+                                                    maxTicksLimit: 6,
+                                                    font: {
+                                                        size: 9
+                                                    },
+                                                    color: '#666'
+                                                },
+                                                grid: {
+                                                    display: false
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+
+                            function changePeriod3(days) {
+                                currentPeriod3 = days;
+                                
+                                // Update button styles
+                                ['period30', 'period60', 'period90'].forEach(id => {
+                                    const btn = document.getElementById(id);
+                                    if (parseInt(id.replace('period', '')) === days) {
+                                        btn.style.background = '#000';
+                                        btn.style.color = 'white';
+                                        btn.style.border = '1px solid #000';
+                                    } else {
+                                        btn.style.background = 'white';
+                                        btn.style.color = '#666';
+                                        btn.style.border = '1px solid #e0e0e0';
+                                    }
+                                });
+                                
+                                updateChart3(days);
+                            }
+
+                            // Initialize chart after a short delay
+                            setTimeout(() => {
+                                if (document.getElementById('priceChart3')) {
+                                    updateChart3(30);
+                                }
+                            }, 200);
+                        </script>
+
+                        <div class="feature-section">
+                            <h4>Why It Works</h4>
+                            <ul>
+                                <li>Phia already tracks prices over time (data exists)</li>
+                                <li>Proven pattern from Google Flights/Kayak that users trust</li>
+                                <li>Creates urgency: "Buy now before price goes up!"</li>
+                                <li>Builds confidence: "I'm getting a good deal"</li>
+                                <li>Increases return visits (checking for price drops)</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-section">
+                            <h4>Impact</h4>
+                            <ul>
+                                <li>Increases purchase confidence with data transparency</li>
+                                <li>Creates urgency, reducing purchase hesitation</li>
+                                <li>Encourages saving items (tracking price drops)</li>
+                                <li>Drives return visits to check prices</li>
+                                <li>Positions Phia as the smart shopper's tool</li>
+                            </ul>
+                        </div>
+
+                        <span class="implementation-badge">⚡ Implementation: ~2 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collective Impact -->
+        <section style="margin-top: 80px;">
+            <p class="section-title">Overall Impact</p>
+            <h2 style="font-size: 36px; margin-bottom: 30px; font-weight: 700;">Why These Matter</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">1-2</div>
+                    <p class="impact-label">Weeks per Feature</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">0</div>
+                    <p class="impact-label">New Data Sources Needed</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">100%</div>
+                    <p class="impact-label">Use Existing Infrastructure</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">3</div>
+                    <p class="impact-label">Core Pain Points Solved</p>
+                </div>
+            </div>
+
+            <div class="insight-box" style="margin-top: 40px;">
+                <h3>Design Philosophy</h3>
+                <p>
+                    These features follow a simple principle: <strong>Listen to user friction, leverage existing data, 
+                    ship fast.</strong> Rather than reimagining Phia's core experience, these enhancements remove small 
+                    barriers that compound into significant user frustration. Each one is a proven pattern from successful 
+                    e-commerce platforms, adapted specifically for Phia's unique value proposition.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Ship These</h2>
+            <p>I'm available part-time now and full-time May-August 2026</p>
+            <a href="mailto:afzal@uni.minerva.edu" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <script>
+        function toggleFeature(header) {
+            const card = header.parentElement;
+            const allCards = document.querySelectorAll('.feature-card');
+            
+            // Close all other cards
+            allCards.forEach(otherCard => {
+                if (otherCard !== card && otherCard.classList.contains('active')) {
+                    otherCard.classList.remove('active');
+                }
+            });
+            
+            // Toggle current card
+            card.classList.toggle('active');
+            
+            // Smooth scroll to card if opening
+            if (card.classList.contains('active')) {
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+
+        // Optional: Open first feature by default
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     document.querySelector('.feature-card').classList.add('active');
+        // });
+    </script>
+    <!-- TOOLTIPS - AT BODY LEVEL SO NOTHING CAN HIDE THEM -->
+    <div id="tooltipNew" class="tooltip">
+        Brand new items, never worn
+    </div>
+    <div id="tooltipUsed" class="tooltip">
+        Pre-owned items from secondhand sellers
+    </div>
+    <div id="tooltipAuth" class="tooltip">
+        Verified authentic by trusted sellers like The RealReal, Vestiaire Collective
+    </div>
+</body>
+</html>
